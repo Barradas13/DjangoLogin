@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block 'titulo'%}{%endblock%}</title>
+</head>
+<div class="container">
+<body>
+    <header>
+      <h1>{%block 'h1'%}{%endblock%}</h1>
+      <br>
+        {%if messages%}
+            {%for message in messages%}
+                <div class="alert alert-success" role="alert">
+                    {{message}}
+                </div>
+            {%endfor%}
+        {%endif%}
+        <br>
+    </header>
+    <section>
+        <form method='POST' class='form' enctype='multipart/form-data'>
+        
+            {% csrf_token %}
+            {% block 'formulario' %}{% endblock  %}
+        </form>
+      <p id="linha">-------------------------------------------------------------------------------------------------------------------</p>
+      {% block 'butons' %}{% endblock  %}
+    </section>
+
+    <footer>
+        <p></p>&copy;Barradas</p>
+    </footer>
+</body>
+</div>
+</html>

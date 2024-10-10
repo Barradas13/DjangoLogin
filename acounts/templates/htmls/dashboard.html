@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+
+{%block 'titulo'%}
+    Dashboard
+{%endblock%}
+
+{%block 'h1'%}
+    Dados
+{%endblock%}
+
+{%block 'formulario'%}
+    <h2>Nome de usuario: <p>{{user.username}}</p></h2>
+
+    <h2>Sobrenome: <p>{{user.last_name}}</p></h2>
+
+    <h2>Data de nascimento:</h2> <p>{{Pessoa.DataNasci}}</p>
+
+    <h2>Para trocar data:</h2><input type="date" name="data" value="{{request.POST.data}}">
+
+    <h2>Texto: </h2><input type="text" name="text" value="{{Pessoa.texto}}" required>
+
+    <h2>Email: <p>{{user.email}}</p></h2>
+
+    <h2>Foto de usuario:</h2>{%if Pessoa.imagem%} 
+                                <img src="{{Pessoa.imagem.url}}"  width="300px" height="auto"><h2>Para trocar a foto:</h2>
+                              {%else%}
+                                <p>Voce ainda não tem nenhuma foto como perfil</p>
+                              {% endif %}
+    <input type="file" name="imagem" accept="image/*">
+<br>
+    <input type="submit" id="ButtonEntrar" value="Salvar dados">
+{%endblock%}
+
+{%block 'butons'%}
+    <a href="{%url 'logout' %}"><input type="button" id="ButtonLogout" value="EXIT"></a>
+{%endblock%}

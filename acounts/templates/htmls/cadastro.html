@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+
+
+{%block 'titulo'%}
+    Cadastre
+{%endblock%}
+
+{%block 'h1'%}
+    Cadastre-se
+{%endblock%}
+
+
+{%block 'formulario'%}
+    <input type="text" name="nome" value="{{request.POST.nome}}" placeholder="Digite seu username" required>
+<br><br>
+    <input type="text" name="sobrenome" value="{{request.POST.sobrenome}}" placeholder="Nome e sobrenome" required>
+<br><br>
+    <input type="date" name="data" value="{{request.POST.data}}"  placeholder="Data de nascimento"required>
+<br><br>
+    <input type="text" name="texto" value="Feliz aniversario!!" required>
+<br><br>
+    <input type="text" name="email" value="{{request.POST.email}}" placeholder="Email" required>
+<br><br>
+    <p>Foto de usuario:</p><input type="file" name="imagem" accept="image/*" id="id_imagem">
+    {%if request.POST.imagem%}
+        <img scr="{{request.POST.imagem.url}}">
+    {% endif %}
+<br><br>
+    <input type="password" name="senha" placeholder="Senha" required>
+<br><br>
+    <input type="password" name="senha2" placeholder="Confirme sua senha" required>
+<br><br>
+<input type="submit" id="ButtonCadastre" value="Cadastre-se">
+    
+{%endblock%}
+
+{%block 'butons'%}
+    <a href="{%url 'login' %}"><input type="button" id="ButtonEntrar" value="Entre"></a>
+{%endblock%}

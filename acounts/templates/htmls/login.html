@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+
+{%block 'titulo'%}
+    Login
+{%endblock%}
+
+{%block 'h1'%}
+    Login
+{%endblock%}
+
+{%block 'formulario'%}
+    <input type="text" name="nome" placeholder="Nome de usuario" required>
+<br><br>
+    <input type="password" name="senha" placeholder="Senha" required>
+<br><br>
+    <input type="password" name="senha2" placeholder="Confirme sua senha" required>
+<br><br>
+    <input type="submit" id="ButtonEntrar" value="Entrar">
+{%endblock%}
+
+{%block 'butons'%}
+    <a href="{%url 'cadastro' %}"><input type="button" id="ButtonCadastre" value="Cadastre-se"></a>
+{%endblock%}
